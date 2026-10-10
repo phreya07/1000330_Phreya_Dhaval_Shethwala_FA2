@@ -1,38 +1,58 @@
-# LogiSight Last Mile Delivery Dashboard
+# LogiSight — Last Mile Delivery Dashboard
 
-FA-2 Mathematics for AI-II. Python 3.11 or 3.12 recommended.
+# About the App
 
-## Run on Windows
+LogiSight is an interactive dashboard that explores last-mile delivery performance—the final stage of transporting an order from a store to a customer. It turns the supplied delivery dataset into charts, summaries, and filters that help logistics managers understand delivery patterns.
 
-Extract the ZIP. Open PowerShell in the LogiSight folder.
+This app was developed for the Maths for AI-II FA-2 project using Python, Pandas, Streamlit, and Plotly.
 
-```powershell
-py -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m streamlit run app.py
-```
+# Why We Built This App
+Delivery performance can vary across traffic conditions, weather, vehicle types, agents, areas, and product categories. Looking through thousands of spreadsheet rows makes these patterns difficult to compare. We built LogiSight to bring these comparisons into one dashboard with clear charts and shared filters.
+Managers can select conditions, check delivery metrics, and identify questions for further investigation. The app supports decisions about routes, fleet allocation, training, and handling or scheduling without claiming that a chart alone proves the cause of longer deliveries.
 
-Using the environment's Python directly avoids PowerShell activation-policy issues.
+# What the App Helps Users Do
 
-## GitHub and Streamlit Cloud
+- Explore traffic and weather conditions associated with longer deliveries.
+- Compare vehicle performance under selected operating conditions.
+- Examine agent ratings and age-group patterns.
+- Identify area types that need further operational investigation.
+- Compare delivery-time distributions across product categories.
+- Filter records by date and delivery conditions.
+- Download selected records for further analysis.
 
-1. Create a GitHub repository for this assessment.
-2. Upload app.py, data_processing.py, requirements.txt, README.md, the data folder and .streamlit/config.toml. Preserve folder paths. Do not upload .venv.
-3. In Streamlit Community Cloud create an app from that repository, choose the branch and app.py as the entry point.
-4. Choose Python 3.12 in advanced settings and deploy.
-5. Test the public URL and submit it. This package has not itself been published.
+# How to Use the App
 
-## Required features
+1. Open the dashboard and review the overall delivery metrics.
+2. Choose date, weather, traffic, vehicle, area, or category filters.
+3. Compare the updated charts and record counts.
+4. Identify a question or pattern that needs further investigation.
+5. Reset the filters to return to the complete dataset.
 
-Weather and traffic mean bars, vehicle mean bar, rating/time scatter coloured by age groups, Area × Traffic mean heatmap, Category distribution boxplot. Filters affect every chart and KPI. Optional histogram and daily trend, record export, cleaning audit and reset are included.
+# Dataset
 
-## Method
+The supplied dataset contains 43,739 records and 16 columns. Its order dates cover 11 February to 6 April 2022.
 
-Delivery_Time's unit is not specified in the CSV, so no unverified unit is asserted. Analytical late means time > full cleaned dataset mean + sample standard deviation; this is not a promised-deadline breach. The fixed threshold does not change with filters. Missing categories become Unknown. Invalid ratings are excluded from scatter only under an explicit 1–5 assumption. Confirm the rating scale with your teacher. Age is not experience; comparisons are associations. Area is a categorical field, so the heatmap does not invent geographic locations.
+The dashboard displays delivery time in source units because the unit has not been confirmed.
 
-## Tests
+# Main features
+- Traffic and weather comparisons to explore longer delivery times.
+- Vehicle comparisons with record counts to show sample sizes.
+- Agent-rating scatter plot coloured by age group.
+- Area and traffic heatmap to explore operating conditions.
+- Product-category boxplots to compare delivery-time distributions.
+- Shared category and date filters, reset controls, and filtered-data download.
+- KPI cards for record count, average, median, and analytical late percentage.
 
-Install pytest separately and run `python -m pytest tests -q`. Tests use Streamlit AppTest plus data checks; see TEST_RESULTS.md for the verification performed on this package.
+# Limitations
 
-## Date controls
-Select one or more years, months, and days of month independently. Empty selections mean all. Optional calendar range can be combined with these controls. Only 2022 exists in the supplied data; all twelve months and days 1–31 are selectable, with empty results handled safely. The calendar range is no longer restricted to source bounds. Reset clears all date selections.
+- Results describe the supplied historical dataset, not live deliveries.
+- Dates outside the dataset’s coverage return no matching records.
+- Small samples, particularly bicycle and Semi-Urban deliveries, require cautious interpretation.
+- Agent age does not measure experience.
+- The app assumes a rating scale of 1–5, which needs confirmation.
+- Analytical late percentage uses the full dataset mean plus one sample standard deviation. It does not measure missed promised deadlines.
+- Comparisons show associations and cannot prove what caused longer deliveries.
+- The app supports investigation; it does not automatically predict delivery times or optimise routes.
+
+streamlit- https://1000330phreyadhavalshethwalafa2-tyne8c4tknlhcgpg7yc7ps.streamlit.app/
+
